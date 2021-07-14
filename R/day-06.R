@@ -31,5 +31,14 @@ ggsave(gg, file = "img/6Q1plot.png")
 
 covid %>%
   group_by(date) %>%
-  summarise(cases = sum(cases))
+  summarise(cases = sum(cases)) %>%
+  ggplot(aes(x = date, y = cases, col = "red")) +
+  geom_col(fill = "red", color = "red", size = .25) +
+  geom_line(color = "blue", size = 5) +
+  labs(title = "cumulative covid case count in the United States", x = "date", y = "cases") +
+  ggthemes::theme_solarized()
+
+
+
+
 
